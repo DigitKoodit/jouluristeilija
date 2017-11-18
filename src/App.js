@@ -12,7 +12,10 @@ import './App.css';
 const App = () => {
   const store = compose(
     applyMiddleware(thunk)
-  )(createStore)(rootReducer);
+  )(createStore)(
+    rootReducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() // Enable redux devtools
+  );
 
   return (
     <Provider store={store}>
