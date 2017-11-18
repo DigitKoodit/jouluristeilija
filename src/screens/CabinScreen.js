@@ -1,5 +1,9 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { cabinCreateToggled, cabinCreated, CABIN_TO_BE_CREATED_KEY } from '../stores/cabins';
+import ScreenBottomButton from '../components/ScreenBottomButton';
+import CabinCreateForm from '../components/CabinCreateForm';
+import { Map } from 'immutable'
 
 // Functionality:
 // Renders list of cabins user has saved into local storage
@@ -15,13 +19,23 @@ import { connect } from 'react-redux';
 // - Save cabins to local storage automatically - REDUX
 // - Remove cabins from local storage automatically - REDUX
 
+const stateToProps = ({ cabins }) => ({
+  showCabinCreateForm: cabins.get(CABIN_TO_BE_CREATED_KEY)
+});
+
+const actionsToProps = (dispatch) => ({
+  toggleCabinCreate: () => dispatch(cabinCreateToggled(CABIN_TO_BE_CREATED_KEY)),
+  addCabin: cabin => dispatch(cabinCreated(cabin))
+});
+
 const Screen = (props) => {
-  // const { ... } = props;
-  return (
+  const { showCabinCreateForm, toggleCabinCreate, addCabin } = props;
+  return [
+    <ScreenBottomButton action={() => toggleCabinCreate()} label="Add a new cabin" />,
     <div className="ScreenContainer">
-      CabinScreen
+      { showCabinCreateForm && <CabinCreateForm onCreate={addCabin} /> }
     </div>
-  );
+  ];
 }
 
-export default connect(null, null)(Screen);
+export default connect(stateToProps, actionsToProps)(Screen);
