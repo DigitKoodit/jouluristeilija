@@ -24,9 +24,9 @@ export const cabinsFetched = cabins => ({
   cabins
 });
 
-export default (state=Map(), action) => {
+export default (state = Map(), action) => {
   const { type, key } = action;
-  switch(type){
+  switch (type) {
     case CABIN_CREATE_TOGGLED:
       const currentState = state.get(key);
       return state.set(key, !currentState);
