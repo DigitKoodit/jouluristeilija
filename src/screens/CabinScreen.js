@@ -6,6 +6,7 @@ import CabinCreateModal from '../components/CabinCreateModal';
 import CabinList from '../components/CabinList';
 import { Map } from 'immutable'
 import './ScheduleScreen.css';
+import './CabinScreen.css';
 
 // Functionality:
 // Renders list of cabins user has saved into local storage

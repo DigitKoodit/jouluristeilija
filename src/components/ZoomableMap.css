@@ -13,14 +13,17 @@
 
 .ZoomableMap-button {
   right: 10px;
-  top: 10px;
+  top: -10px;
   font-weight: 900;
   color: #f44336;
   font-size: 2rem;
   position: absolute;
 }
 
+.ZoomableMap-button > img {
+  height: 2rem;
+}
+
 .ZoomableMap-button--zoomOut {
   left: 10px;
-  top: 10px;
 }

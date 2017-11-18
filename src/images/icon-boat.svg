@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="64px" height="64px" viewBox="0 0 64 64"><g stroke-width="3" transform="translate(0.5, 0.5)"><line data-color="color-2" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="square" stroke-miterlimit="10" x1="16" y1="12" x2="27" y2="12" stroke-linejoin="miter"></line>
+<polyline fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="square" stroke-miterlimit="10" points="16,20 16,6 27,6 
+	27,20 " stroke-linejoin="miter"></polyline>
+<polyline data-cap="butt" fill="none" stroke="#ffffff" stroke-width="3" stroke-miterlimit="10" points="10,34 10,20 44,20 52,34 " stroke-linecap="butt" stroke-linejoin="miter"></polyline>
+<polyline fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="square" stroke-miterlimit="10" points="10,50 4,34 60,34 
+	51,50 " stroke-linejoin="miter"></polyline>
+<line data-color="color-2" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="square" stroke-miterlimit="10" x1="17" y1="27" x2="19" y2="27" stroke-linejoin="miter"></line>
+<line data-color="color-2" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="square" stroke-miterlimit="10" x1="27" y1="27" x2="29" y2="27" stroke-linejoin="miter"></line>
+<line data-color="color-2" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="square" stroke-miterlimit="10" x1="37" y1="27" x2="39" y2="27" stroke-linejoin="miter"></line>
+<path data-color="color-2" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="square" stroke-miterlimit="10" d="M3,50
+	c0,4.418,3.582,8,8,8c3.036,0,5.645-1.711,7-4.202C19.355,56.289,21.964,58,25,58s5.645-1.711,7-4.202
+	C33.355,56.289,35.964,58,39,58s5.645-1.711,7-4.202C47.355,56.289,49.964,58,53,58c4.418,0,8-3.582,8-8" stroke-linejoin="miter"></path></g></svg>
