@@ -1,0 +1,27 @@
+.ZoomableMap {
+  margin-top: 30px;
+  overflow: scroll;
+  background-color: #B3E5FC;
+  height: 320px;
+}
+.ZoomableMap-container {
+  position: relative;
+}
+
+.ZoomableMap-image {
+  height: 100%;
+}
+
+.ZoomableMap-button {
+  right: 10px;
+  top: 10px;
+  font-weight: 900;
+  color: #f44336;
+  font-size: 2rem;
+  position: absolute;
+}
+
+.ZoomableMap-button--zoomOut {
+  left: 10px;
+  top: 10px;
+}

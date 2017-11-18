@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import logo from '../images/logo.png';
 import sponsor from '../images/sponsor.png';
