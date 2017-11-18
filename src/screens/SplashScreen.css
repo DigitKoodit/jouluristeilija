@@ -1,6 +1,7 @@
 .SplashScreen-header {
   width: 100%;
   padding: 30px;
+  text-align: center;
 }
 
 .SplashScreen-text {
@@ -18,4 +19,5 @@
 
 .SplashScreen-logo {
   width: 100%;
+  max-width: 500px;
 }

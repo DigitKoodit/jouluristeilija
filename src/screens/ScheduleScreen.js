@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { uiConfigToggled } from '../stores/viewConfig';
+import { viewConfigToggled } from '../stores/viewConfig';
 import ScreenBottomButton from '../components/ScreenBottomButton';
 import EventSchedule from '../components/EventSchedule';
 import OpeningHours from '../components/OpeningHours';
@@ -13,7 +13,7 @@ const stateToProps = ({ viewConfig }) => ({
 });
 
 const actionsToProps = (dispatch) => ({
-  toggleView: () => dispatch(uiConfigToggled(SCHEDULES_VISIBLE_KEY))
+  toggleView: () => dispatch(viewConfigToggled(SCHEDULES_VISIBLE_KEY))
 })
 
 const Screen = (props) => {

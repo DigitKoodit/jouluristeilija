@@ -1,0 +1,11 @@
+.MapScreen {
+  flex: 1;
+}
+
+.MapScreen-buttons > button {
+  margin: 10px;
+}
+
+.MapScreen-buttons {
+  padding: 0;
+}
