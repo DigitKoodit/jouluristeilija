@@ -2,7 +2,7 @@ import { Map, List, fromJS } from 'immutable';
 
 export const CABINS_DB_KEY = 'cabins';
 
-const CABINS_KEY = 'cabins';
+export const CABINS_KEY = 'cabins';
 export const CABIN_TO_BE_CREATED_KEY = 'cabinToBeCreated';
 
 const CABIN_CREATE_TOGGLED = 'cabinCreateToggled';
@@ -33,7 +33,9 @@ export default (state=Map(), action) => {
 
     case CABIN_ADDED:
       const currentCabins = state.get(CABINS_KEY, List());
-      const newCabins = currentCabins.push(Map({ id: Date.now().toString(), number: action.cabin.number, description: action.cabin.description }));
+      const newCabins = currentCabins.push(
+        Map({ id: Date.now().toString(), number: action.cabin.number, description: action.cabin.description })
+      );
       return state.merge({
         [CABINS_KEY]: newCabins,
         cabinToBeCreated: false

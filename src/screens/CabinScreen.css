@@ -1,0 +1,4 @@
+.CabinScreen {
+  flex: 1;
+  overflow: scroll;
+}
