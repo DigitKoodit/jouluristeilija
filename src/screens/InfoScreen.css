@@ -1,0 +1,19 @@
+.InfoScreen {
+  width: 100%;
+  padding: 20px;
+  flex: 1;
+}
+
+.InfoScreen-some {
+  text-align: center;
+}
+
+.InfoScreen-some > bold {
+  display: inline-block;
+  padding: 4px;
+  background-color: #f44336;
+  color: #fff;
+  font-weight: 500;
+  margin: 2px;
+  border-radius: 4px;
+}
