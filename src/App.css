@@ -50,3 +50,16 @@ body {
 * {
 	box-sizing: border-box;
 }
+
+.App {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	height: 100%;
+}
+
+.App-content {
+	display: flex;
+	flex: 1;
+	flex-flow: column;
+}
