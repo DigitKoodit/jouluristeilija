@@ -1,0 +1,28 @@
+.ScreenBottomButton {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  border-top: 2px solid #212121;
+}
+
+.ScreenBottomButton > button {
+  border: 3px solid #F44336;
+  border-radius: 20px;
+  background-color: #f44336;
+  color: white;
+  padding: 10px;
+  font-size: 1.2rem;
+  font-family: Montserrat, sans-serif;
+  box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.24);
+}
+
+.ScreenBottomButton > button:hover {
+  background-color: transparent;
+  color: #f44336;
+  box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.24);
+}
+
+.ScreenBottomButton > button:focus {
+  outline: none;
+  box-shadow: none;
+}
