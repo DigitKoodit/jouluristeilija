@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { uiConfigToggled } from '../stores/viewConfig';
 import ScreenBottomButton from '../components/ScreenBottomButton';
+import EventSchedule from '../components/EventSchedule';
+import OpeningHours from '../components/OpeningHours';
 import './ScheduleScreen.css';
 
 const SCHEDULES_VISIBLE_KEY = 'schedulesVisible';
@@ -16,15 +18,16 @@ const actionsToProps = (dispatch) => ({
 
 const Screen = (props) => {
   const { showHours, toggleView } = props;
+  const buttonLabel = showHours ? 'Näytä aikataulu' : 'Näytä aukioloajat'
   return [
     <div className="ScreenContainer ScheduleScreen">
       { showHours
-        ? 'Showing opening hours'
-        : 'Showing event schedule'
+        ? <OpeningHours />
+        : <EventSchedule />
       }
 
     </div>,
-    <ScreenBottomButton action={() => toggleView()} label="Change view" />
+    <ScreenBottomButton action={() => toggleView()} label={buttonLabel} />
   ];
 }
 
