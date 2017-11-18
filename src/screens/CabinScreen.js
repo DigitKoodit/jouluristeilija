@@ -1,9 +1,11 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { cabinCreateToggled, cabinCreated, CABIN_TO_BE_CREATED_KEY } from '../stores/cabins';
+import { cabinCreateToggled, cabinCreated, CABIN_TO_BE_CREATED_KEY, CABINS_KEY } from '../stores/cabins';
 import ScreenBottomButton from '../components/ScreenBottomButton';
-import CabinCreateForm from '../components/CabinCreateForm';
+import CabinCreateModal from '../components/CabinCreateModal';
+import CabinList from '../components/CabinList';
 import { Map } from 'immutable'
+import './ScheduleScreen.css';
 
 // Functionality:
 // Renders list of cabins user has saved into local storage
@@ -20,7 +22,8 @@ import { Map } from 'immutable'
 // - Remove cabins from local storage automatically - REDUX
 
 const stateToProps = ({ cabins }) => ({
-  showCabinCreateForm: cabins.get(CABIN_TO_BE_CREATED_KEY)
+  showCabinCreateForm: cabins.get(CABIN_TO_BE_CREATED_KEY),
+  cabins: cabins.get(CABINS_KEY)
 });
 
 const actionsToProps = (dispatch) => ({
@@ -29,12 +32,13 @@ const actionsToProps = (dispatch) => ({
 });
 
 const Screen = (props) => {
-  const { showCabinCreateForm, toggleCabinCreate, addCabin } = props;
+  const { showCabinCreateForm, toggleCabinCreate, addCabin, cabins } = props;
   return [
-    <ScreenBottomButton action={() => toggleCabinCreate()} label="Add a new cabin" />,
-    <div className="ScreenContainer">
-      { showCabinCreateForm && <CabinCreateForm onCreate={addCabin} /> }
-    </div>
+    <div className="ScreenContainer CabinScreen">
+      { !!cabins && <CabinList cabins={cabins} /> }
+    </div>,
+    <div>{ showCabinCreateForm && <CabinCreateModal onCreate={addCabin} onCancel={toggleCabinCreate} /> }</div>,
+    <ScreenBottomButton action={() => toggleCabinCreate()} label="Lisää hytti" />
   ];
 }
 
