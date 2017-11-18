@@ -1,7 +1,6 @@
 .ZoomableMap {
   margin-top: 30px;
   overflow: scroll;
-  background-color: #B3E5FC;
   height: 320px;
 }
 .ZoomableMap-container {
