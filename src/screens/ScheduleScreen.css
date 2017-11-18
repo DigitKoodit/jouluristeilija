@@ -1,3 +1,4 @@
 .ScheduleScreen {
   flex: 1;
+  overflow: scroll;
 }
