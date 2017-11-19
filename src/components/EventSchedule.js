@@ -1,21 +1,51 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './EventSchedule.css';
-import { formatTime } from '../core/time';
+import { formatTime, happeningNow, timePassed } from '../core/time';
+import { viewConfigToggled } from '../stores/viewConfig';
 
-const stateToProps = ({ schedules }) => ({ eventHours: schedules.get('eventSchedule') })
+const SHOW_OLD_ITEMS = 'scheduleShowOld';
+
+const stateToProps = ({ schedules, viewConfig }) => {
+  const unfilteredHours = schedules.get('eventSchedule');
+  if (viewConfig.get(SHOW_OLD_ITEMS, false)) return {
+    eventHours: unfilteredHours,
+    filtered: false,
+  };
+  return {
+    eventHours: unfilteredHours.filter(event => !timePassed(event.get('epochEnd'))),
+    filtered: true,
+  };
+}
+
+const actionsToProps = (dispatch) => ({
+  showOldItems: () => dispatch(viewConfigToggled(SHOW_OLD_ITEMS)),
+});
 
 const EventSchedule = (props) => {
-  const { eventHours } = props;
-  const currentTime = new Date();
-
+  const { eventHours, showOldItems, filtered } = props;
+  const sortedHours = eventHours.sort((a, b) => a.get('epochStart') - b.get('epochStart'));
+  
   return [
     <h2 className="EventScheduleHeader">Risteilyaikataulu</h2>,
-    eventHours.map((item, index) => {
+    <button onClick={() => showOldItems()} className="EventSchedule-showOldButton">
+      { filtered ? 'Näytä menneet' : 'Piilota menneet' }
+    </button>,
+    sortedHours.map((item, index) => {
       const startTime = item.get('epochStart') ? formatTime(item.get('epochStart')) : false;
       const endTime = item.get('epochEnd') ? formatTime(item.get('epochEnd')) : false;
+      const active = happeningNow(item.get('epochStart'), item.get('epochEnd'));
+      const finished = timePassed(item.get('epochEnd'));
       return (
-        <div key={item.get('id')} className="EventScheduleItem">
+        <div
+          key={item.get('id')}
+          className={
+            `EventScheduleItem 
+            ${active ? 'EventScheduleItem--Active' : ''}
+            ${finished ? 'EventScheduleItem--Finished' : ''}
+            `
+          }
+        >
           <div className="EventScheduleItem-hours">
             {startTime && <span className="EventScheduleItem-time">{startTime}</span>}
             {startTime && endTime && <span className="EventScheduleItem-timeDivider"> - </span>}
@@ -31,4 +61,4 @@ const EventSchedule = (props) => {
   ];
 }
 
-export default connect(stateToProps)(EventSchedule);
+export default connect(stateToProps, actionsToProps)(EventSchedule);

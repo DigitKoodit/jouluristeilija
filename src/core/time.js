@@ -5,3 +5,12 @@ export const formatTime = epoch => {
   const time = new Date(epoch);
   return `${getHours(time)}:${getMinutes(time)}`;
 }
+
+export const timePassed = (epochTime) =>
+  epochTime < new Date().getTime();
+
+export const happeningNow = (epochStart, epochEnd) => {
+  const currentTime = new Date().getTime();
+  if (!epochStart || !epochEnd) return false;
+  return epochStart < currentTime && epochEnd > currentTime;
+}
