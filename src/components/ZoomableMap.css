@@ -18,6 +18,8 @@
   color: #f44336;
   font-size: 2rem;
   position: absolute;
+  background-color: transparent;
+  border: none;
 }
 
 .ZoomableMap-button > img {

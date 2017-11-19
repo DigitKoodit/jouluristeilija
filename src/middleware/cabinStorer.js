@@ -1,5 +1,5 @@
 import { CABIN_ADDED, CABINS_DB_KEY } from '../stores/cabins';
-import { Set } from 'immutable';
+import { Set, List } from 'immutable';
 import localforage from 'localforage';
 
 // A set of actions which require updating IndexedDB.
@@ -20,7 +20,7 @@ export default function({ getState }) {
     let returnValue = next(action)
 
     if (actionsThatRequireUpdate.includes(action.type)) {
-      const newCabins = getState().cabins.get('cabins', null);
+      const newCabins = getState().cabins.get('cabins', List());
       storeCabins(newCabins.toJS());
     }
 
