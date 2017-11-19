@@ -21,7 +21,7 @@ const Screen = (props) => {
       <img className="SplashScreen-logo SplashScreen-sponsor" src={sponsor} />
       <div className="InfoScreen-some">
         <h2 className="SplashScreen-text">Risteilyt somessa:</h2>
-        { wordCloud.map(hashtag => <bold>{hashtag}</bold>) }
+        { wordCloud.map(hashtag => <span key={hashtag}>{hashtag}</span>) }
       </div>
     </div>
   );

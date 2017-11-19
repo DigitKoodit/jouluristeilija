@@ -9,7 +9,7 @@
   text-align: center;
 }
 
-.InfoScreen-some > bold {
+.InfoScreen-some > span {
   display: inline-block;
   padding: 4px;
   background-color: #f44336;
