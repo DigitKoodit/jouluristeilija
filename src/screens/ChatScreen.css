@@ -1,0 +1,12 @@
+.ChatScreen {
+  flex: 1;
+  overflow: scroll;
+}
+
+.ChatScreenHeader {
+  padding: 20px;
+  font-weight: bold;
+  font-size: 1.4rem;
+  color: #f44336;
+  text-align: center;
+}

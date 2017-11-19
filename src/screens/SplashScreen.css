@@ -1,0 +1,23 @@
+.SplashScreen-header {
+  width: 100%;
+  padding: 30px;
+  text-align: center;
+}
+
+.SplashScreen-text {
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 5px;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.SplashScreen-sponsor {
+  border-bottom: 3px #F44336 solid;
+  border-top: 3px #F44336 solid;
+}
+
+.SplashScreen-logo {
+  width: 100%;
+  max-width: 500px;
+}

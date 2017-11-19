@@ -1,0 +1,53 @@
+.CabinCreateModal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  background: white;
+  padding: 40px;
+  box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.24);
+  background-clip: padding-box;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.CabinCreateModal > form > h2 {
+  font-weight: 900;
+  padding: 5px;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.CabinCreateModal > form > input {
+  margin-bottom: 5px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #cdcdcd;
+  border-color: rgba(0,0,0,.15);
+  background-color: white;
+  border-radius: 3px;
+}
+
+.CabinCreateModal > form > input:focus {
+  outline: none;
+}
+
+.CabinCreateModal-buttons > button {
+  margin-top: 10px;
+  border: 3px solid #F44336;
+  border-radius: 20px;
+  background-color: #f44336;
+  color: white;
+  padding: 10px;
+  font-size: 0.8rem;
+  font-family: Montserrat, sans-serif;
+}
+
+.CabinCreateModal-buttons > button:first-child {
+  float: left;
+}
+
+.CabinCreateModal-buttons > button:last-child {
+  float: right;
+}

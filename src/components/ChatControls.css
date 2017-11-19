@@ -1,0 +1,38 @@
+.ChatControls {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 2px -1px 4px 0px rgba(0,0,0,0.24);
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  background-color: #fff;
+  overflow: scroll;
+}
+
+.ChatControls-input {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #cdcdcd;
+  border-color: rgba(0,0,0,.15);
+  background-color: white;
+  border-radius: 3px;
+  flex: 1;
+  margin-right: 10px;
+}
+
+.ChatControls-input:focus {
+  outline: none;
+}
+
+.ChatControls-button {
+  border: 3px solid #F44336;
+  border-radius: 4px;
+  background-color: #f44336;
+  color: white;
+  padding: 10px;
+  font-size: 1rem;
+  font-family: Montserrat, sans-serif; 
+}
+
