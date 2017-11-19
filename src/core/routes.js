@@ -2,11 +2,11 @@ import CabinScreen from '../screens/CabinScreen';
 import InfoScreen from '../screens/InfoScreen';
 import ScheduleScreen from '../screens/ScheduleScreen';
 import MapScreen from '../screens/MapScreen';
-import SplashScreen from '../screens/SplashScreen';
+import ChatScreen from '../screens/ChatScreen';
 
 export default [
   { path: '/',
-    component: SplashScreen,
+    component: InfoScreen,
   },
   { path: '/schedule',
     symbol: 'Schedule',
@@ -19,6 +19,10 @@ export default [
   { path: '/map',
     symbol: 'Map',
     component: MapScreen,
+  },
+  { path: '/chat',
+    symbol: 'Chat',
+    component: ChatScreen,
   },
   { path: '/info',
     symbol: 'Info',

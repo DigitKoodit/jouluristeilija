@@ -1,10 +1,9 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { cabinCreateToggled, cabinCreated, CABIN_TO_BE_CREATED_KEY, CABINS_KEY } from '../stores/cabins';
 import ScreenBottomButton from '../components/ScreenBottomButton';
 import CabinCreateModal from '../components/CabinCreateModal';
 import CabinList from '../components/CabinList';
-import { Map } from 'immutable'
 import './ScheduleScreen.css';
 import './CabinScreen.css';
 

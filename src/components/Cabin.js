@@ -2,7 +2,7 @@ import React from 'react';
 import './Cabin.css';
 
 const Cabin = (props) => {
-  const { id, number, description, onClick } = props;
+  const { id, number, description} = props;
   return (
     <div className="Cabin" key={id}>
       <div className="Cabin-content">

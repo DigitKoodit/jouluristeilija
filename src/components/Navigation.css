@@ -27,12 +27,12 @@
 }
 
 .Navigation-icon {
-  width: 2rem;;
+  width: 2rem;
 }
 
 @media (max-width: 600px), (max-device-width:600px) {
   .Navigation-Link {
     font-size: .8rem;
-    padding: 10px;
+    padding: 5px;
   }
 } 

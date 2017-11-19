@@ -7,7 +7,6 @@ const stateToProps = ({ schedules }) => ({ openingHours: schedules.get('openingH
 
 const OpeningHours = (props) => {
   const { openingHours } = props;
-  const currentTime = new Date();
 
   const categories = openingHours.map(item => item.get('category'))
     .toSet()

@@ -38,7 +38,7 @@ class ZoomableMap extends Component {
           <button onClick={() => this.zoomOut()} className="ZoomableMap-button ZoomableMap-button--zoomOut"><img alt="Minus" src={minusIcon} /></button>
         }
         <div style={{ padding: containerPadding }} className="ZoomableMap">
-          <img className="ZoomableMap-image" src={mapSource} />
+          <img alt="map" className="ZoomableMap-image" src={mapSource} />
         </div>
       </div>
     )

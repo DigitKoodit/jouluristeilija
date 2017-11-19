@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "firebase": "^4.6.2",
     "http-server": "^0.10.0",
     "immutable": "^3.8.2",
     "localforage": "^1.5.3",

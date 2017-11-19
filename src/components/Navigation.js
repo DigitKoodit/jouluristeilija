@@ -6,12 +6,14 @@ import boat from '../images/icon-boat.svg';
 import note from '../images/icon-note.svg';
 import info from '../images/icon-info.svg';
 import time from '../images/icon-time.svg';
+import chat from '../images/icon-chat.svg';
 
 const routeIcons = {
   'Map': boat,
   'Cabins': note,
   'Info': info,
-  'Schedule': time
+  'Schedule': time,
+  'Chat': chat,
 }
 
 const Navigation = ({ routes }) =>
