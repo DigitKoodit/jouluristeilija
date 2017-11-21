@@ -1,0 +1,21 @@
+.ChatManager {
+  background-color: #212121;
+  padding: 10px;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.ChatManager-disclaimer {
+  padding: 20px;
+  line-height: 1.2;
+}
+
+.ChatManager-label {
+  color: #fff;
+  padding-bottom: 20px;
+  font-weight: 500;
+  font-size: 1.2rem;
+}

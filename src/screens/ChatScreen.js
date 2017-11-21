@@ -3,37 +3,47 @@ import { connect } from 'react-redux';
 import { initializeChat } from '../stores/chat';
 import ChatMessages from '../components/ChatMessages';
 import ChatControls from '../components/ChatControls';
+import ChatManager from '../components/ChatManager';
 import './ChatScreen.css';
 
 const stateToProps = ({ chat }) => ({
-  chat,
+  userName: chat.get('userName'),
+  userId: chat.get('userId'),
+  chatInitialized: chat.get('initialized'),
 });
 
 const actionsToProps = dispatch  => ({
-  configureChat: (nick) => dispatch(initializeChat(nick)),
+  configureChat: () => dispatch(initializeChat()),
 });
 
 class Screen extends Component {
-  componentWillMount() {
-    const { configureChat, chat } = this.props;
-    const chatInitialized = chat.get('initialized');
-    if (!chatInitialized) this.initializeChatScreen();
-  }
-  
-  initializeChatScreen(userId) {
-    const { configureChat } = this.props;
-    configureChat('Devaaja');
+  componentDidUpdate() {
+    const {
+      configureChat,
+      chatInitialized,
+      userId,
+      userName
+    } = this.props;
+    if (!userName || !userId) return;
+    if (!chatInitialized) configureChat();
   }
 
   render() {
-    const { chat } = this.props;
-    const { initialized } = chat.toJS();
-    if (!initialized) return <h1>Ladataan tietoja</h1>;
+    const {
+      userName,
+      userId,
+    } = this.props;
+
     return [
       <h2 className="ChatScreenHeader">Risteilychätti</h2>,
       <div className="ChatScreen">
-        <ChatMessages />
-        <ChatControls />
+        { (!userName || !userId)
+          ? <ChatManager />
+          : [
+            <ChatMessages />,
+            <ChatControls />
+          ]
+        }
       </div>
     ];
   }

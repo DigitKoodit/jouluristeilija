@@ -1,5 +1,6 @@
 import * as firebase from 'firebase';
-import { messagesLoaded } from '../stores/chat';
+import { Map } from 'immutable';
+import { messageLoaded } from '../stores/chat';
 
 export const ERROR_TYPE = 'RESPONSE_ERROR';
 export const SUCCESS_TYPE = 'RESPONSE_SUCCESS';
@@ -26,8 +27,9 @@ const messageRef = firebase.database().ref('messages/');
 
 
 export function initializeChatListeners(dispatch) {
-  messageRef.on('value', (snapshot) => {
-    dispatch(messagesLoaded(snapshot.val()))
+  messageRef.on('child_added', (snapshot) => {
+    const message = Map(snapshot.val());
+    dispatch(messageLoaded(message));
   });
 }
 
@@ -49,7 +51,9 @@ export function pushMessage(userId, userName, userMessage) {
 
   const messageTimeStamp = new Date().getTime();
 
-  const messageKey = messageRef.push().key;
+  const messageMeta = messageRef.push();
+  const messageKey = messageMeta.key;
+
 
   return messageRef.update({[messageKey]: {
     userId,

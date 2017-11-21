@@ -1,9 +1,7 @@
-import { fromJS } from 'immutable';
+import { fromJS, List, Map } from 'immutable';
 import { storeChatCredentials } from '../core/auth';
 import {
   ERROR_TYPE,
-  SUCCESS_TYPE,
-  fetchInitialMessages,
   pushMessage,
   initializeChatListeners
 } from '../core/fireApi';
@@ -25,9 +23,9 @@ export const setUserId = userId => ({
   userId,
 });
 
-export const messagesLoaded = (messages) => ({
+export const messageLoaded = (message) => ({
   type: MESSAGES_LOADED,
-  messages: fromJS(messages).toList()
+  message: message
 })
 
 const chatInitialized = () => ({
@@ -44,22 +42,21 @@ const errorHappened = (err) => ({
 });
 
 export const initializeChat = (userNick) => {
+  console.log('Calling initialize chat', userNick);
   return (dispatch, getState) => {
     const { chat } = getState();
     const { userName, userId } = chat.toJS();
-    return Promise.resolve(() => {
+    return Promise.resolve()
+    .then(() => {
       if (!userId || !userName) {
         storeChatCredentials(userNick)
-          .then(dispatch(setUserId));
+          .then((userId) => dispatch(setUserId(userId)));
         dispatch(setUserName(userNick));
       } else {
         dispatch(setUserName(userName));
         dispatch(setUserId(userId));
       }
     })
-    .then(() => fetchInitialMessages())
-    .catch(err => console.warn(err))
-    .then((messages) => dispatch(messagesLoaded(messages)))
     .then(() => initializeChatListeners(dispatch))
     .then(() => dispatch(chatInitialized()))
   }
@@ -85,34 +82,34 @@ const initialState = fromJS({
   userName: null,
   userId: null,
   userMessage: '',
-  messages: [
-    {
+  messages: List.of(
+    Map({
       userId: 'ADMIN',
       userName: 'Risteilyappi',
       message: 'Tervetuloa risteilychättiin. Toiminnallisuus on ekaa kertaa testissä joten huomioithan että ongelmia huonoilla yhteyksillä varmasti tulee. Otathan muut huomioon viesteissäsi.',
       timeStamp: 0,
-    }
-  ]
+    }),
+  ),
 });
 
 export default (state = initialState, action) => {
-  const { type, messages, userName, userId, error } = action;
+  const { type, message, userName, userId, error } = action;
   switch(type){
     case INITIALIZE_CHAT:
-      console.log('Chat has been initalized');
+      console.log('Chat has been initialized');
       return state.set('initialized', true);
 
     case SET_USER_ID:
-      return state.set('userId', userId);
+    console.log('Setting userId', userId)
+    return state.set('userId', userId);
 
     case SET_USER_NAME:
+      console.log('Setting userName', userName)
       return state.set('userName', userName)
     
     case MESSAGES_LOADED:
       return state.update('messages', oldMessages =>
-        oldMessages.concat(messages)
-          .toSet()
-          .toList()
+        oldMessages.push(message)
       );
 
     case MESSAGE_SENT:

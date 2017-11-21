@@ -7,7 +7,7 @@ const stateToProps = ({ chat }) => ({
   messages: chat.get('messages')
     .sort((a, b) => a.get('timeStamp') - b.get('timeStamp'))
     .slice(-20),
-})
+});
 
 class ChatMessages extends Component {
   componentDidMount() {
@@ -19,15 +19,15 @@ class ChatMessages extends Component {
   }
 
   componentDidUpdate(){
-    this.scrollToBottom('smooth');    
+    this.scrollToBottom('smooth');
   }
 
   render() {
     const { messages } = this.props;
     return (
       <div className="ChatMessages">
-      { messages.map(message =>
-        <div key={message.get('timeStamp') + message.get('userId')} className="ChatMessage">
+      { messages.map((message, i) =>
+        <div key={`message__${i}`} className="ChatMessage">
           <h4>{message.get('userName')} - {formatTime(message.get('timeStamp'))}</h4>
           <p>{message.get('message')}</p>
         </div>

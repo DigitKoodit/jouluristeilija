@@ -16,10 +16,10 @@ class CabinCreateForm extends React.Component {
   handleChange = (e) => {
     switch (e.target.name) {
       case NUMBER_CHANGE:
-        this.state.number = e.target.value;
+        this.setState({number: e.target.value});
         break;
       case DESCRIPTION_CHANGE:
-        this.state.description = e.target.value;
+        this.setState({description: e.target.value});
         break;
       default: break;
     }
