@@ -58,11 +58,15 @@ class App extends Component {
   render() {
     const store = this.store;
 
+    console.log(window.location);
+
+    const isEmbed = window.location.pathname === '/schedule-embed';
+
     return (
       <Provider store={store}>
         <Router>
           <div className="App">
-            <Navigation routes={routes} />
+            {!isEmbed && <Navigation routes={routes} />}
             <AppRouter routes={routes} />
           </div>
         </Router>

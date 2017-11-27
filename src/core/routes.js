@@ -28,4 +28,8 @@ export default [
     symbol: 'Info',
     component: InfoScreen,
   },
+  {
+    path: '/schedule-embed',
+    component: ScheduleScreen,
+  }
 ];
