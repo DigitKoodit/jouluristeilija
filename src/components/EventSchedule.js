@@ -33,9 +33,13 @@ const EventSchedule = (props) => {
     </button>,
     sortedHours.map((item, index) => {
       const startTime = item.get('epochStart') ? formatTime(item.get('epochStart')) : false;
-      const endTime = item.get('epochEnd') ? formatTime(item.get('epochEnd')) : false;
+      const endTime = item.get('epochEnd') !== item.get('epochStart')
+        ? formatTime(item.get('epochEnd'))
+        : false;
       const active = happeningNow(item.get('epochStart'), item.get('epochEnd'));
-      const finished = timePassed(item.get('epochEnd'));
+      const finished = item.get('epochEnd', false)
+        ? timePassed(item.get('epochEnd')) 
+        : timePassed(item.get('epochStart'));
       return (
         <div
           key={item.get('id')}

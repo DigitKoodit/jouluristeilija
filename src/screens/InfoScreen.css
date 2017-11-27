@@ -9,7 +9,7 @@
   text-align: center;
 }
 
-.InfoScreen-some > span {
+.InfoScreen-some > a {
   display: inline-block;
   padding: 4px;
   background-color: #f44336;
@@ -17,4 +17,11 @@
   font-weight: 500;
   margin: 2px;
   border-radius: 4px;
+  text-decoration: none;
+  border: 2px solid #f44336;
+}
+
+.InfoScreen-some > a:hover {
+  background-color: #fff;
+  color: #f44336;
 }

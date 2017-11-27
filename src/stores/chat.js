@@ -42,7 +42,6 @@ const errorHappened = (err) => ({
 });
 
 export const initializeChat = (userNick) => {
-  console.log('Calling initialize chat', userNick);
   return (dispatch, getState) => {
     const { chat } = getState();
     const { userName, userId } = chat.toJS();
@@ -100,11 +99,9 @@ export default (state = initialState, action) => {
       return state.set('initialized', true);
 
     case SET_USER_ID:
-    console.log('Setting userId', userId)
     return state.set('userId', userId);
 
     case SET_USER_NAME:
-      console.log('Setting userName', userName)
       return state.set('userName', userName)
     
     case MESSAGES_LOADED:
