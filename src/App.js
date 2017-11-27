@@ -63,14 +63,14 @@ class App extends Component {
     const isEmbed = window.location.pathname === '/schedule-embed';
 
     return (
-      <Provider store={store}>
-        <Router>
+      <Router>
+        <Provider store={store}>
           <div className="App">
             {!isEmbed && <Navigation routes={routes} />}
             <AppRouter routes={routes} />
           </div>
-        </Router>
-      </Provider>
+        </Provider>
+      </Router>
     );
   }
 }
