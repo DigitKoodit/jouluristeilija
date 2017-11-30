@@ -48,32 +48,12 @@ class Screen extends Component {
       userName,
       userId,
     } = this.props;
-    const currentTime = new Date().getTime();
-
-    if (currentTime < CHAT_INITIALIZATION_TIMESTAMP) {
-      return [
-        <h2 className="ChatScreenHeader">Risteilychätti</h2>,
-        <p className="ChatScreen-placeholder">
-          Risteilychätti aukeaa noin kello 14:00, 30.11.2017. Rajallisista yhteyksistä johtuen,
-          chätti ei välttämättä tule laivalla toimimaan täydellisesti.
-        </p>,
-        <p className="ChatScreen-placeholder">
-          Chätin auettua, käyttäydythän asiallisesti ja otat muut keskustelijat huomioon.
-        </p>
-      ]
-    }
 
     return [
       <h2 className="ChatScreenHeader">Risteilychätti</h2>,
-      <div className="ChatScreen">
-        { (!userName || !userId)
-          ? <ChatManager />
-          : [
-            <ChatMessages />,
-            <ChatControls />
-          ]
-        }
-      </div>
+      <p className="ChatScreen-placeholder">
+        Valitettavasti jouduimme sulkemaan chätin.
+      </p>
     ];
   }
 }
