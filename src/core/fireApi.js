@@ -1,5 +1,5 @@
 import * as firebase from 'firebase';
-import { Map } from 'immutable';
+import { Map, List } from 'immutable';
 import { messageLoaded } from '../stores/chat';
 
 export const ERROR_TYPE = 'RESPONSE_ERROR';
@@ -45,6 +45,21 @@ export function fetchInitialMessages() {
     });
 }
 
+export const forbiddenNames = List.of(
+  'admin',
+  'after_lecture',
+  'ylläpito',
+  'yllapito',
+  'risteilyappi',
+  'jouluristeily',
+  'afterlecture',
+  'loimu',
+  'loimury',
+  'moderaattori',
+  'mode',
+  'risteilyäppi',
+);
+
 export function pushMessage(userId, userName, userMessage) {
   if (!userId || !userName) return createResponse(ERROR_TYPE, errorMessages.authentication);
   if (userMessage.length === 0) return createResponse(ERROR_TYPE, errorMessages.message);
@@ -54,6 +69,10 @@ export function pushMessage(userId, userName, userMessage) {
   const messageMeta = messageRef.push();
   const messageKey = messageMeta.key;
 
+  if (forbiddenNames.includes(userName.toLowerCase())) {
+    alert('Elä viitti esiintyä ylläpitona, me ei tueta sellaista');
+    return createResponse(ERROR_TYPE, errorMessages.authentication);
+  }
 
   return messageRef.update({[messageKey]: {
     userId,

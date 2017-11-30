@@ -3,7 +3,8 @@ import { storeChatCredentials } from '../core/auth';
 import {
   ERROR_TYPE,
   pushMessage,
-  initializeChatListeners
+  initializeChatListeners,
+  forbiddenNames
 } from '../core/fireApi';
 
 const INITIALIZE_CHAT = 'initializeChat';
@@ -45,6 +46,11 @@ export const initializeChat = (userNick) => {
   return (dispatch, getState) => {
     const { chat } = getState();
     const { userName, userId } = chat.toJS();
+
+    if (userNick && forbiddenNames.includes(userNick.toLowerCase())) {
+      alert('Elä viitti esiintyy ylläpitona ku se on hauskempaa ku ollaan kaikki tasaarvosia.');
+    }
+
     return Promise.resolve()
     .then(() => {
       if (!userId || !userName) {
