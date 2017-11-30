@@ -1,7 +1,9 @@
 .ZoomableMap {
-  margin-top: 30px;
   overflow: scroll;
   height: 320px;
+  background-color: #212121;
+  box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.24);
+  margin-top: 50px;
 }
 .ZoomableMap-container {
   position: relative;
@@ -13,7 +15,8 @@
 
 .ZoomableMap-button {
   right: 10px;
-  top: -10px;
+  top: 5px;
+  padding: 4px;
   font-weight: 900;
   color: #f44336;
   font-size: 2rem;
