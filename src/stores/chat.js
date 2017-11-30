@@ -49,6 +49,7 @@ export const initializeChat = (userNick) => {
 
     if (userNick && forbiddenNames.includes(userNick.toLowerCase())) {
       alert('Elä viitti esiintyy ylläpitona ku se on hauskempaa ku ollaan kaikki tasaarvosia.');
+      return;
     }
 
     return Promise.resolve()
