@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './OpeningHours.css';
-import { formatTime } from '../core/time';
+import { formatTime, happeningNow } from '../core/time';
 
 const stateToProps = ({ schedules }) => ({ openingHours: schedules.get('openingHours') })
 
@@ -28,11 +28,16 @@ const OpeningHours = (props) => {
                   <p>Kansi: {item.get('deck')}</p>
                 </div>
                 <div className="OpeningHoursItem-hours">
+                  <p className="OpeningHoursItem-hoursLabel">Aukioloajat</p>
                   { item.get('times').map((time, idx) => {
                     const startTime = time.get('epochStart') ? formatTime(time.get('epochStart')) : false;
                     const endTime = time.get('epochEnd') ? formatTime(time.get('epochEnd')) : false;
+                    const active = happeningNow(time.get('epochStart'), time.get('epochEnd'));
                     return (
-                      <div key={time.get('epochStart')+ idx} className="OpeningHoursItem-times">
+                      <div
+                        key={time.get('epochStart')+ idx}
+                        className={`OpeningHoursItem-time ${active ? 'OpeningHoursItem-time--Active' : ''}`}
+                      >
                         {startTime && <span className="OpeningHoursItem-time">{startTime}</span>}
                         {startTime && endTime && <span className="OpeningHoursItem-timeDivider"> - </span>}
                         {endTime &&<span className="OpeningHoursItem-time">{endTime}</span>}

@@ -36,6 +36,7 @@ const Screen = (props) => {
   const { showCabinCreateForm, toggleCabinCreate, addCabin, cabins } = props;
   return [
     <div className="ScreenContainer CabinScreen">
+      <h2 className="ScreenContainer-title">Hyttimuistio</h2>
       { !!cabins && <CabinList cabins={cabins} /> }
     </div>,
     <div>{ showCabinCreateForm && <CabinCreateModal onCreate={addCabin} onCancel={toggleCabinCreate} /> }</div>,

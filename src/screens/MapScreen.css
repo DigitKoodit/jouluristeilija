@@ -1,11 +1,7 @@
 .MapScreen {
-  background-color: #363636;
   flex: 1;
 }
 
-.MapScreen > h2 {
-  color: #fff;
-}
 
 .MapScreen-buttons > button {
   margin: 10px;

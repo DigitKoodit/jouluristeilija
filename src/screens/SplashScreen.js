@@ -9,9 +9,9 @@ const Screen = (props) => {
   return (
     <div className="ScreenContainer">
       <div className="SplashScreen-header">
-        <img className="SplashScreen-logo" src={logo} />
+        <img alt="Logo" className="SplashScreen-logo" src={logo} />
         <h2 className="SplashScreen-text">Risteilyllä mukana:</h2>
-        <img className="SplashScreen-logo SplashScreen-sponsor" src={sponsor} />
+        <img alt="Sponsori" className="SplashScreen-logo SplashScreen-sponsor" src={sponsor} />
       </div>
     </div>
   );
